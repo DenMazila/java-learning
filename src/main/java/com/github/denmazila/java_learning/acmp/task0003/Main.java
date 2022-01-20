@@ -14,7 +14,7 @@ public class Main {
             String c = "25";
             out.print(c);
         } else {
-            int b = a * (a + 1);
+            int b = a * ++a; // заменил (a+1) на ++а
             String c = b + "25";
             out.print(c);
         }
