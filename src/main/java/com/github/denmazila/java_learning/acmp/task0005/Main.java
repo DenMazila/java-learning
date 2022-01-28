@@ -24,7 +24,7 @@ public class Main {
         out.println(" ");
         for (int k = 0; k < n; k++) {
             if ((numbers.get(k) % 2) == 0) {
-                four = (four + 1);
+                four ++;
                 out.print(numbers.get(k) + " ");
             }
         }
