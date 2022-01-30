@@ -14,30 +14,20 @@ public class Main {
         for (int i = 0; i <= 2; i++) {
             numbers.add(in.nextInt());
         }
-        int min;
-        int max;
-        if (numbers.get(0) <= numbers.get(1)) {
-            min = numbers.get(0);
-        } else if (numbers.get(0) <= numbers.get(2)) {
-            min = numbers.get(0);
-        } else if (numbers.get(1) <= numbers.get(2)) {
-            min = numbers.get(1);
-        } else {
-            min = numbers.get(2);
-        }
+        int min = numbers.get(0);
+        int max = numbers.get(0);
+        int a;
 
-        if (numbers.get(0) >= numbers.get(1)) {
-            max = numbers.get(0);
-        } else if (numbers.get(0) >= numbers.get(2)) {
-            max = numbers.get(0);
-        } else if (numbers.get(1) >= numbers.get(2)) {
-            max = numbers.get(1);
-        } else {
-            max = numbers.get(2);
+        for (int j = 1; j <= 2; j++) {
+            if (min > numbers.get(j)) {
+                min = numbers.get(j);
+            }
+            if (max < numbers.get(j)) {
+                max = numbers.get(j);
+            }
         }
-
-        int a = max - min;
-        out.print(a);
+        a = max - min;
+        out.println(a);
         out.flush();
     }
 }
