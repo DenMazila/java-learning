@@ -15,6 +15,10 @@ public class main {
         for (int i = 0; i < length; i++) {
             charList.add(bracketArray[i]);
         }
+        if (charList.get(0) == ')'){
+            System.out.println("скобочная последовательность не верная");
+            return;
+        }
 
         int openingBracket = 0;
         int closingBracket = 0;
@@ -22,11 +26,11 @@ public class main {
             if (charList.get(i) == '(') {
                 openingBracket++;
             }
-            if (charList.get(i) == ')') {
-                closingBracket++;
+            else {
+                openingBracket--;
             }
         }
-        if (openingBracket == closingBracket) {
+        if (openingBracket == 0) {
             System.out.println("скобочная последовательность верная");
         }
         else {
