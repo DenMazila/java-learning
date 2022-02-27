@@ -15,25 +15,25 @@ public class main {
         for (int i = 0; i < length; i++) {
             charList.add(bracketArray[i]);
         }
-        if (charList.get(0) == ')'){
+        if (charList.get(0) == ')') {
             System.out.println("скобочная последовательность не верная");
             return;
         }
 
         int openingBracket = 0;
-        int closingBracket = 0;
         for (int i = 0; i < length; i++) {
             if (charList.get(i) == '(') {
                 openingBracket++;
-            }
-            else {
+            } else {
                 openingBracket--;
+            }
+            if (openingBracket < 0) {
+                break;
             }
         }
         if (openingBracket == 0) {
             System.out.println("скобочная последовательность верная");
-        }
-        else {
+        } else {
             System.out.println("скобочная последовательность не верная");
         }
 
