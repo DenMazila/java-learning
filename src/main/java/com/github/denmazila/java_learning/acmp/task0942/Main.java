@@ -1,6 +1,9 @@
 package com.github.denmazila.java_learning.acmp.task0942;
 
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -9,54 +12,40 @@ public class Main {
         PrintWriter out = new PrintWriter(System.out);
 
         int n = in.nextInt();  // n - кол-во элементов массива
-        int[] array = new int[n];
+        List<Integer> arrayList = new ArrayList<>();
         for (int i = 0; i < n; i++) {
-            array[i] = in.nextInt();
+            arrayList.add(in.nextInt());
         }
-        int stud1 = 0;  // stud1 - баллы студента 1 курса
-        int sum1 = 0;
-        int stud3 = 0;  // stud3 - баллы студента 3 курса
-        int sum3 = 0;
-        int stud5 = 0;  // stud5 - баллы студента 5 курса
-        int sum5 = 0;
-        for (int k : array) {
-            sum5 += k;
-            stud5 += sum5;
-        }
-        for (int i = n - 1; i >= 0; i--) {
-            sum3 += array[i];
-            stud3 += sum3;
-        }
-        //производим сортировку массива array по возрастанию.
-        for (int i = 0; i < n; i++) {
-            int min = array[i];
-            int min_i = i;
+        int stud5 = getScore(arrayList);  // stud5 - баллы студента 5 курса
 
-            for (int j = i + 1; j < n; j++) {
-                if (array[j] < min) {
-                    min = array[j];
-                    min_i = j;
-                }
-            }
-            if (i != min_i) {
-                int tmp = array[i];
-                array[i] = array[min_i];
-                array[min_i] = tmp;
-            }
-        }
-        for (int k : array) {
-            sum1 += k;
-            stud1 += sum1;
-        }
-        if (stud1 <= stud3 & stud1 <= stud3) {
-            System.out.println(1);
-        }
-        if (stud3 <= stud5 & stud3 < stud1) {
-            System.out.println(3);
-        }
-        if (stud5 < stud3 & stud5 < stud1) {
-            System.out.println(5);
-        }
+        List<Integer> reverse = new ArrayList<>(arrayList);
+        Collections.reverse(reverse);
+        int stud3 = getScore(reverse);  // stud3 - баллы студента 3 курса
 
+        List<Integer> sorted = new ArrayList<>(arrayList);
+        Collections.sort(sorted);
+        int stud1 = getScore(sorted);  // stud1 - баллы студента 1 курса
+
+        System.out.println(printWinner(stud5, stud3, stud1));
+    }
+
+    private static int printWinner(int stud5, int stud3, int stud1) {
+        if (stud1 <= stud3 && stud1 <= stud5) {
+            return 1;
+        }
+        if (stud3 <= stud5) {
+            return 3;
+        }
+        return 5;
+    }
+
+    public static int getScore(List<Integer> tasksComplexity) {
+        int sum = 0;
+        int stud = 0;
+        for (int i = 0; i < tasksComplexity.size(); i++) {
+            sum += tasksComplexity.get(i);
+            stud += sum;
+        }
+        return stud;
     }
 }
