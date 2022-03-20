@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(
-                        Main.class.getResourceAsStream("/numbers.txt")
+                        Main.class.getResourceAsStream("/numbers")
                 )
         );
 
@@ -26,7 +26,6 @@ public class Main {
         for (int i = 1; i <= 9; i++) {
             divisibilityStatistics.put(i, numberCount(allNumbers, i));
         }
-        //System.out.println(divisibilityStatistics);
 
         List<Map.Entry<Integer, Integer>> entries1 = new ArrayList<>(divisibilityStatistics.entrySet());
         entries1.sort(Map.Entry.comparingByValue());
@@ -34,7 +33,6 @@ public class Main {
             Map.Entry<Integer, Integer> stat = entries1.get(i);
             System.out.println(stat);
         }
-//    System.out.println(lines);
 
     }
 
@@ -46,23 +44,6 @@ public class Main {
             }
         }
         return number;
-    }
-
-    private static Map<Integer, Integer> getWordCount(List<Integer> words) {
-        Map<Integer, Integer> result = new HashMap<>();
-        for (Integer word : words) {
-            // 2. Если слово уже есть в словаре - то переписать значение на X+1;
-            if (result.containsKey(word)) {
-                Integer currentAmount = result.get(word);
-                result.put(word, currentAmount + 1);
-            }
-            // 1. Если слова еще нет в словаре - добавить что оно используется 1 раз.
-            else {
-                result.put(word, 1);
-            }
-        }
-
-        return result;
     }
 
     private static List<Integer> getNumbers(String line) {
