@@ -29,7 +29,7 @@ public class Main {
         System.out.println(printWinner(stud5, stud3, stud1));
     }
 
-    private static int printWinner(int stud5, int stud3, int stud1) {
+    public static int printWinner(int stud5, int stud3, int stud1) {
         if (stud1 <= stud3 && stud1 <= stud5) {
             return 1;
         }
