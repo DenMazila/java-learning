@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(
-                        Main.class.getResourceAsStream("/numbers.txt")
+                        Main.class.getResourceAsStream("/numbers")
                 )
         );
 
