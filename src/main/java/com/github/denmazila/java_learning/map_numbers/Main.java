@@ -53,7 +53,6 @@ public class Main {
             int iNumber = Integer.parseInt(s[i]);
             numbers.add(iNumber);
         }
-        //List<Integer> numbers = Arrays.asList(in);
         return numbers;
     }
 
