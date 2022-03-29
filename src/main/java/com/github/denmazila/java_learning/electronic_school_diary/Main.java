@@ -7,6 +7,6 @@ public class Main {
         ElSchoolDiary russianLanguage = new RussianLanguage (5, "диктант", 4, "Работа на уроке", 2, "домашняя работа", 5, 4, "сочинение");
         ElSchoolDiary physicalCulture = new PhysicalCulture (5, "работа на уроке", 5, "пресс", 4, "Работа на уроке", 5, "бег на дистанцию 30м.");
 
-        System.out.println(result);
+        System.out.println();
     }
 }
