@@ -14,10 +14,10 @@ class MainTest {
     }
 
     @Test
-    void tesIntegerToArrayConversionSuggestedTumber() {
+    void tesIntegerToArrayConversionSuggestedNumber() {
         int[] expected = {5, 6, 7, 8};
         int s = 5678;
-        int[] actual = Main.integerToArrayConversionSuggestedTumber(s);
+        int[] actual = Main.integerToArrayConversionSuggestedNumber(s);
         assertArrayEquals(expected, actual);
     }
 
