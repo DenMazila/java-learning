@@ -7,13 +7,17 @@ import static org.junit.jupiter.api.Assertions.*;
 class BracketSequenceTest {
 
     @Test
-    void TestBracketSequenceCheck(){
-        char [] original1 = {'(','(','(',')'};
-        char [] original2 = {'(','(',')',')'};
+    void testBracketSequenceCheck() {
+        char[] original1 = {'(', '(', '(', ')' };
+        char[] original2 = {'(', '(', ')', ')' };
         MyStack stack1 = new MyStack(4);
-        //BracketSequence.stackСreation(original1,stack1);
-        boolean s = BracketSequence.bracketSequenceCheck(4, MyStack BracketSequence.stackСreation(original1,stack1));
-        assertEquals(s, false);
+        MyStack stack2 = new MyStack(4);
+        BracketSequence.createStack(original1, stack1);
+        BracketSequence.createStack(original2, stack2);
+        boolean s1 = BracketSequence.checkBracketSequence(4, stack1);
+        boolean s2 = BracketSequence.checkBracketSequence(4, stack2);
+        assertFalse(s1);
+        assertEquals(s2, true);
 
     }
 

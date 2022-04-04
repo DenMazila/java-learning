@@ -1,5 +1,7 @@
 package com.github.denmazila.java_learning.stack3;
 
+import java.util.List;
+
 public class MyStack {
     private char[] state;
     private int size = 0;
@@ -32,6 +34,9 @@ public class MyStack {
         char element = state[size - 1];
         size = size - 1;
         return element;
+    }
+    void go (List <Integer> a, int [] b){
+
     }
 
 }
