@@ -1,9 +1,7 @@
 package com.github.denmazila.java_learning.stack4;
 
-import java.util.List;
-
 public class MyStack {
-    private char[] state;
+    private final char[] state;
     private int size = 0;
 
     public MyStack(int maxSize) {
@@ -36,21 +34,15 @@ public class MyStack {
         return element;
     }
 
-    void go(List<Integer> a, int[] b) {
-
-    }
-
     public char peek() {
-        char element = state[size - 1];
-        return element;
+        return state[size - 1];
     }
 
     public boolean empty() {
-        if (size == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return size == 0;
     }
 
+    public int size(){
+        return size;
+    }
 }
