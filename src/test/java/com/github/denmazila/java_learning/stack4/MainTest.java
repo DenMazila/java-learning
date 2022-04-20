@@ -10,9 +10,9 @@ class MainTest {
         char[] original1 = {'(', ')', '[', ']'};
         char[] original2 = {'(', '(', '[', ']'};
         char[] original3 = {'(', '[', ')', ']'};
-        boolean s1 = Main.checkBracketSequence(4, original1);
-        boolean s2 = Main.checkBracketSequence(4, original2);
-        boolean s3 = Main.checkBracketSequence(4, original3);
+        boolean s1 = Main.checkBracketSequence(original1);
+        boolean s2 = Main.checkBracketSequence(original2);
+        boolean s3 = Main.checkBracketSequence(original3);
         assertTrue(s1);
         assertEquals(s2, false);
         assertFalse(s3);

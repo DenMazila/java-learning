@@ -8,28 +8,27 @@ public class Main {
         System.out.print("Введите скобочную последовательность: ");
         String bracketSequence = in.next();
         char[] bracketArray = bracketSequence.toCharArray();
-        if (checkBracketSequence(bracketArray.length, bracketArray)) {
+        if (checkBracketSequence(bracketArray)) {
             System.out.println("скобочная последовательность верная");
         } else {
             System.out.println("скобочная последовательность не верная");
         }
     }
 
-    public static boolean checkBracketSequence(int length, char[] bracketArray) {
+    public static boolean checkBracketSequence(char[] bracketArray) {
         MyStack stack = new MyStack(bracketArray.length);
-        if (bracketArray[0] == ')' || bracketArray[0] == ']' || length % 2 != 0) {
+        if (bracketArray[0] == ')' || bracketArray[0] == ']' || bracketArray.length % 2 != 0) {
             return false;
         } else {
             stack.push(bracketArray[0]);
         }
-        char peek;
-        for (int i = 1; i < length; i++) {
-            peek = stack.pop();
+        for (int i = 1; i < bracketArray.length; i++) {
+            char peek = stack.pop();
             if ((peek != '(' || bracketArray[i] != ')') && (peek != '[' || bracketArray[i] != ']')) {
                 stack.push(peek);
                 stack.push(bracketArray[i]);
             }
-            if (i < length - 1 && stack.size() == 0) {
+            if (i < bracketArray.length - 1 && stack.size() == 0) {
                 stack.push(bracketArray[i + 1]);
                 i++;
             }
