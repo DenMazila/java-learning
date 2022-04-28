@@ -1,29 +1,35 @@
 package com.github.denmazila.java_learning.electronic_school_diary;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 public class PhysicalCulture extends ElSchoolDiary {
+
+    Scanner in = new Scanner(System.in);
+    private List<Integer> grades = new ArrayList<>();
     private int grade1;
     private String note1;
     private int grade2;
-    private String note2;
-    private int grade3;
-    private String note3;
-    private int grade4;
-    private String note4;
     double result;
 
-    public PhysicalCulture(int grade1, String note1, int grade2, String note2, int grade3, String note3, int grade4, String note4) {
+    public PhysicalCulture(int grade1, String note1) {
         this.grade1 = grade1;
         this.note1 = note1;
-        this.grade2 = grade2;
-        this.note2 = note2;
-        this.grade3 = grade3;
-        this.note3 = note3;
-        this.grade4 = grade4;
-        this.note4 = note4;
-        this.result = (grade1 + grade2 + grade3 + grade4) / 4;
     }
+
     @Override
-    public double average () {
-        return result;
+    public double calculateAverage() {
+        if (grades.size() >= 3) {
+            double sum = 0;
+            for (Integer grade : grades) {
+                sum = sum + grade;
+            }
+        /*for (int i = 0; i < grades.size(); i++) {
+            sum = sum + grades.get(i);
+        }*/
+            return result = sum / grades.size();
+        } else System.out.println("Невозможно вычеслить среднюю оценку. Колличество оценок должно быть больше трёх");
+        return 0;
     }
 }

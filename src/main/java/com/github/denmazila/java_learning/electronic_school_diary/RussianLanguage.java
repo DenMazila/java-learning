@@ -1,34 +1,44 @@
 package com.github.denmazila.java_learning.electronic_school_diary;
 
-public class RussianLanguage extends ElSchoolDiary {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
+public class RussianLanguage extends ElSchoolDiary {
+    Scanner in = new Scanner(System.in);
+    private List<Integer> grades = new ArrayList<>();
     private int grade1;
     private String note1;
     private int grade2;
-    private String note2;
-    private int grade3;
-    private String note3;
-    private int grade4;
-    private int grade5;
-    private String note4;
-    private double result;
 
-    public RussianLanguage(int grade1, String note1, int grade2, String note2, int grade3, String note3, int grade4, int grade5, String note4) {
+    public RussianLanguage(int grade1, String note1) {
         this.grade1 = grade1;
+        grades.add(grade1);
+        this.note1 = note1;
+    }
+
+    public RussianLanguage(int grade1, int grade2, String note1) {
+        this.grade1 = grade1;
+        grades.add(grade1);
         this.note1 = note1;
         this.grade2 = grade2;
-        this.note2 = note2;
-        this.grade3 = grade3;
-        this.note3 = note3;
-        this.grade4 = grade4;
-        this.grade5 = grade5;
-        this.note4 = note4;
-        this.result = (grade1 + grade2 + grade3 + grade4 + grade5) / 5;
+        grades.add(grade2);
+    }
 
-        }
-        @Override
-        public double average () {
-            return result;
-
+    @Override
+    public double calculateAverage() {
+        if (grades.size() >= 3) {
+            double sum = 0;
+            for (Integer grade : grades) {
+                sum = sum + grade;
+            }
+        /*for (int i = 0; i < grades.size(); i++) {
+            sum = sum + grades.get(i);
+        }*/
+            double result;
+            return result = sum / grades.size();
+        } else System.out.println("Невозможно вычеслить среднюю оценку по Русскому языку. " +
+                "Колличество оценок должно быть больше трёх");
+        return 0;
     }
 }
