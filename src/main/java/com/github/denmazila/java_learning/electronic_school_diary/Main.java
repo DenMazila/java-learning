@@ -1,23 +1,18 @@
 package com.github.denmazila.java_learning.electronic_school_diary;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.denmazila.java_learning.electronic_school_diary.repositories.DiaryRepository;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Main {
-    static ObjectMapper objectMapper = new ObjectMapper();
+    private static DiaryRepository diaryRepository = new DiaryRepository();
 
     public static void main(String[] args) throws IOException {
-        Diary diary = objectMapper.readValue(new File("diary.json"), Diary.class);
-//        Diary diary = new Diary();
-//        List<String> subjects = diary.getSubjects();
-//        subjects.add("Vova");
-//        subjects.add("Vasya");
-//        diary.setSubjects(subjects);
-        objectMapper.writeValue(new File("diary.json"), diary);
+//        Diary diary = new DiaryRepository().readDiaryFromFile();   соответствует двум строчкам ниже.
+//      DiaryRepository diaryRepository = new DiaryRepository();
+        Diary diary = diaryRepository.readDiaryFromFile();
+
+        diaryRepository.saveDiaryFromFile(diary);
         System.out.println(diary.getSubjects());
     }
 
