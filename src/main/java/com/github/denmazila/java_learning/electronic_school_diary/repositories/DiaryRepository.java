@@ -7,11 +7,10 @@ import java.io.File;
 import java.io.IOException;
 
 public class DiaryRepository {
-    private static ObjectMapper objectMapper = new ObjectMapper();
+    private static final ObjectMapper objectMapper = new ObjectMapper();
 
     public Diary readDiaryFromFile() throws IOException {
-        Diary diary = objectMapper.readValue(new File("diary.json"), Diary.class);
-        return diary;
+        return objectMapper.readValue(new File("diary.json"), Diary.class);
     }
 
     public void saveDiaryFromFile(Diary diary) throws IOException {

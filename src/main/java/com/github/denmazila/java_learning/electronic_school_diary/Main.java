@@ -5,7 +5,7 @@ import com.github.denmazila.java_learning.electronic_school_diary.repositories.D
 import java.io.IOException;
 
 public class Main {
-    private static DiaryRepository diaryRepository = new DiaryRepository();
+    private static final DiaryRepository diaryRepository = new DiaryRepository();
 
     public static void main(String[] args) throws IOException {
 //        Diary diary = new DiaryRepository().readDiaryFromFile();   соответствует двум строчкам ниже.
