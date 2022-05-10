@@ -18,6 +18,18 @@ public class Subject {
         return lessons;
     }
 
+    @Override
+    public String toString() {
+        String readableName = name.toString();
+        if (name == SubjectName.MATH) {
+            readableName = "Математика";
+        }
+        return "Subject{" +
+                "предмет: " + readableName +
+                "; колличество уроков = " + lessons.size() +
+                '}';
+    }
+
     public void setLessons(List<Lesson> lessons) {
         this.lessons = lessons;
     }

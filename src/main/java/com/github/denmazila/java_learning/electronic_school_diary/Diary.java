@@ -11,6 +11,5 @@ public class Diary {
 
     public void setSubjects(List<Subject> subjects) {
         this.subjects = subjects;
-        System.out.println("Я установил subjects");
     }
 }

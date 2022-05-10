@@ -24,24 +24,32 @@ public class Main {
             math = new Subject();
             math.setName(SubjectName.MATH);
             math.setLessons(new ArrayList<Lesson>());
+            diary.getSubjects().add(math);
         }
 
         Lesson lesson = null;
         List<Lesson> lessons = math.getLessons();
-        for (int i = 0; i <lessons.size() ; i++) {
+        for (int i = 0; i < lessons.size(); i++) {
             if (lessons.get(i).getDate().equals("05.05.2022")) {
                 lesson = lessons.get(i);
             }
         }
-        if (lesson == null){
+        if (lesson == null) {
             lesson = new Lesson();
             lesson.setDate("05.05.2022");
-            lesson.setTheme("Домашняя работа");
+            lesson.setTheme("Сложение в пределах 10");
             lesson.setMarks(new ArrayList<Mark>());
+            math.getLessons().add(lesson);
         }
+        Mark markMath = new Mark();
+        markMath.setValue(5);
+        markMath.setNote("Работа на уроке");
+        lesson.getMarks().add(markMath);
+
 
         diaryRepository.saveDiaryFromFile(diary);
         System.out.println(diary.getSubjects());
+        System.out.println("[com.github.denmazila.java_learning.electronic_school_diary.Subject@8dbdac1]");
     }
 
     public static void scenario1(String[] args) {
