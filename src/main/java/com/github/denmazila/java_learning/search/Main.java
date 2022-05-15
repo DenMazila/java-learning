@@ -26,6 +26,12 @@ public class Main {
      * @return Минимальное значение в списке.
      */
     public static int min(List<Integer> numbers) {
+        if (numbers.isEmpty()){
+            throw new IllegalArgumentException();
+        }
+        if (numbers.contains(null)){
+            throw new NullPointerException();
+        }
         int min = numbers.get(0);
         for (int i = 1; i < numbers.size(); i++) {
             if (numbers.get(i) < min) {
